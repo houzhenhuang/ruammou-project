@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity>
+    <containers>
+      <container name="configContainer">
+        <register type="Ioc.Interface.IPhone,Ioc.Interface" mapTo="Ioc.Service.ApplePhone, Ioc.Service"/>
+        <register type="Ioc.Interface.IMicrophone, Ioc.Interface" mapTo="Ioc.Service.Microphone, Ioc.Service"/>
+        <register type="Ioc.Interface.IHeadphone, Ioc.Interface" mapTo="Ioc.Service.Headphone, Ioc.Service"/>
+        <register type="Ioc.Interface.IBluetooth, Ioc.Interface" mapTo="Ioc.Service.Bluetooth, Ioc.Service"/>
+      </container>
+    </containers>
+  </unity>
+</configuration>

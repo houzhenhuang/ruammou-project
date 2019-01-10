@@ -1,0 +1,9 @@
+﻿@model System.Reflection.EventInfo[]
+@{
+    ViewBag.Title = "ShowModules";
+}
+@foreach (var item in Model)
+{
+    <p>@item.Name</p>
+}
+

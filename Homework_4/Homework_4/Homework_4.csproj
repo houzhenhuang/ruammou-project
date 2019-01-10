@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DC18734-0800-4652-A3FD-0AB53ED55143}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Homework_4</RootNamespace>
+    <AssemblyName>Homework_4</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="File\food.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Factory\Factory.csproj">
+      <Project>{70d16894-e915-42dc-84dc-7757ee1c10b0}</Project>
+      <Name>Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Homework_4.Common\Homework_4.Common.csproj">
+      <Project>{d1436456-c504-4440-82bd-8e02869ab84c}</Project>
+      <Name>Homework_4.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Homework_4.IMenu\Homework_4.IMenu.csproj">
+      <Project>{0362157f-7f6a-42ee-9626-2edadce1092e}</Project>
+      <Name>Homework_4.IMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Homework_4.Menu.Service\Homework_4.Menu.Service.csproj">
+      <Project>{3bfa081e-2113-40f4-afa4-afeca9edf451}</Project>
+      <Name>Homework_4.Menu.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Homework_4.OrderSystem.AbstractHelper\Homework_4.OrderSystem.AbstractHelper.csproj">
+      <Project>{5dbe7261-b3ea-4860-9d50-402375d779cb}</Project>
+      <Name>Homework_4.OrderSystem.AbstractHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Homework_4.OrderSystem.Service\Homework_4.OrderSystem.Service.csproj">
+      <Project>{02819595-9866-4ae0-a92a-eb0171c6e745}</Project>
+      <Name>Homework_4.OrderSystem.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

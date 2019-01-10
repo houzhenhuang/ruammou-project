@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "Demo";
+}
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>登录</legend>
+        <p>
+            <input type="text" id="txtAccount" name="账号" />
+            <input type="text" id="txtPassword" name="密码" />
+            <input type="button" id="btnLogin" value="登陆" />
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>GET</legend>
+        <p><input type="text" id="txtId" name="id" /> </p>
+        <p>
+            <input type="button" id="btnGet1" value="GetDataNoParam" />
+            <input type="button" id="btnGet2" value="GetUserById" />
+            <input type="button" id="btnGet3" value="GetUserByIdName" />
+            <input type="button" id="btnGet4" value="Get4" />
+        </p>
+        <p>
+            <input type="button" id="btnGet5" value="GetUserByModel" />
+            <input type="button" id="btnGet6" value="GetUserByModelUri" />
+            <input type="button" id="btnGet7" value="GetUserByModelSerialize" />
+            <input type="button" id="btnGet8" value="GetUserByModelSerializeWithoutGet" />
+            <input type="button" id="btnGet9" value="NoGetUserByModelSerializeWithoutGet" />
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>POST</legend>
+        <p>
+            <input type="button" id="btnPost1" value="Post1" />
+            <input type="button" id="btnPost2" value="Post2" />
+            <input type="button" id="btnPost3" value="Post3" />
+            <input type="button" id="btnPost4" value="Post4" />
+        </p>
+        <p>
+            <input type="button" id="btnPost5" value="Post5" />
+            <input type="button" id="btnPost6" value="Post6" />
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>PUT</legend>
+        <p>
+            <input type="button" id="btnPut1" value="Put1" />
+            <input type="button" id="btnPut2" value="Put2" />
+            <input type="button" id="btnPut3" value="Put3" />
+            <input type="button" id="btnPut4" value="Put4" />
+            <input type="button" id="btnPut5" value="Put5" />
+            <input type="button" id="btnPut6" value="Put6" />
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>跨域</legend>
+        <p>
+            <input type="button" id="btnGetCors1" value="跨域Get1" />
+            <input type="button" id="btnGetCors2" value="跨域Get2" />
+        </p>
+    </fieldset>
+
+
+
+    <p><input type="text" id="txtId" name="id" /> </p>
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var user = { userId: "11", userName: "tome", userEmail: "1165071241@qq.com" };
+        var info = "this is muti model";
+        //get request
+        $("#btnGet1").on("click", function () {//没有参数
+            $.get("/api/users/Get", {}, function (res) {
+                console.log(res);
+            });
+        });
+        $("#btnGet2").on("click", function () {//单个参数
+            $.get("/api/users/GetUserById", { id: $("#txtId").val() }, function (res) {
+                console.log(res);
+            });
+        });
+        $("#btnGet3").on("click", function () {//两个参数
+            $.get("/api/users/GetUserByNameId", { id: $("#txtId").val(), userName: "Superman" }, function (res) {
+                console.log(res);
+            });
+        });
+        $("#btnGet5").on("click", function () {//传递实体
+            $.get("/api/users/GetUserByModel", user, function (res) {
+                console.log(res);
+            });
+        });
+        $("#btnGet6").on("click", function () {//传递实体
+            $.get("/api/users/GetUserByModelUri", user, function (res) {
+                console.log(res);
+            });
+        });
+        $("#btnGet7").on("click", function () {//传递实体
+            $.get("/api/users/GetUserByModelSerialize", { userString: JSON.stringify(user) }, function (res) {
+                console.log(res);
+            });
+        });
+        $("#btnGet8").on("click", function () {//传递实体,Action以Get开头，不加HttpGet特性
+            $.get("/api/users/GetUserByModelSerializeWithoutGet", { userString: JSON.stringify(user) }, function (res) {
+                console.log(res);
+            });
+        });
+        $("#btnGet9").on("click", function () {//传递实体,Action不以Get开头，不加HttpGet特性
+            $.get("/api/users/NoGetUserByModelSerializeWithoutGet", { userString: JSON.stringify(user) }, function (res) {
+                console.log(res);
+            });
+        });
+        //post request
+
+        $("#btnPost1").on("click", function () {//单个值传递，json数据不要key（后台没拿到。）
+            $.post("/api/users/RegisterNoKey", {"id", $("#txtId").val()}, function (res) {
+
+            }, 'json');
+        });
+        $("#btnPost2").on("click", function () {//key-value形式后台拿不到
+            $.ajax({ url: "/api/users/Register", type: "post", data: { "id": $("#txtId").val() }, success: function (data) { alert(data); }, datatype: "json" });
+        });
+        $("#btnPost3").on("click", function () {//传递json格式的，后台可以用实体接收
+            $.ajax({ url: "/api/users/RegisterUser", type: "post", data: user, success: function (data) { alert(data); }, datatype: "json" });
+        });
+
+        $("#btnPost4").on("click", function () {//传递json序列化后的格式，后台可以用实体接收,需要指定contentType
+            $.ajax({ url: "/api/users/RegisterUser", type: "post", data: JSON.stringify(user), success: function (data) { alert(data); }, datatype: "json", contentType: 'application/json' });
+        });
+
+        $("#btnPost5").on("click", function () {//JObject接收
+            $.ajax({ url: "/api/users/RegisterObject", type: "post", data: { "User": user, "Info": info }, success: function (data) { alert(data); }, datatype: "json" });
+        });
+        $("#btnPost6").on("click", function () {//Dynamic  失败了
+            $.ajax({ url: "/api/users/RegisterObjectDynamic", type: "post", data: { "User": user, "Info": info }, success: function (data) { alert(data); }, datatype: "json", contentType: 'application/json' });
+        });
+
+    });
+</script>

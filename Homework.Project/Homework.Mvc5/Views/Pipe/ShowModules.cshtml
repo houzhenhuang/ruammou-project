@@ -1,0 +1,9 @@
+﻿ @model HttpModuleCollection
+@{
+    ViewBag.Title = "ShowModules";
+}
+@foreach (var item in Model)
+{
+   <p>@item.ToString()</p>
+}
+

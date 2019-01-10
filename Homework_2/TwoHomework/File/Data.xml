@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<DataList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EastGroup>
+    <Action>东派的人：夫起大呼，妇亦起大呼。两儿齐哭。俄而百千人大呼，百千儿哭，百千犬吠。</Action>
+  </EastGroup>
+  <SouthGroup>
+    <Action>南派的人：夫起大呼，妇亦起大呼。两儿齐哭。俄而百千人大呼，百千儿哭，百千犬吠。</Action>
+  </SouthGroup>
+  <WestGroup>
+    <Action>西派的人：夫起大呼，妇亦起大呼。两儿齐哭。俄而百千人大呼，百千儿哭，百千犬吠。</Action>
+  </WestGroup>
+  <NorthGroup>
+    <Action>北派的人：夫起大呼，妇亦起大呼。两儿齐哭。俄而百千人大呼，百千儿哭，百千犬吠。</Action>
+  </NorthGroup>
+</DataList>

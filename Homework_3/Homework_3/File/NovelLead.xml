@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfNovelLead xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <NovelLead>
+    <Name>乔峰</Name>
+    <Story>乔峰成为丐帮帮主|乔峰发现自己是个契丹人|乔峰发现自己是契丹人之后成为了南院大王|乔峰挂印离开</Story>
+    <FontColor>1</FontColor>    
+  </NovelLead>
+  <NovelLead>
+    <Name>虚竹</Name>
+    <Story>虚竹最开始是少林寺的一个小和尚|虚竹下成为了逍遥派掌门|虚竹成为了灵鹫宫宫主|虚竹成为了西夏驸马</Story>
+    <FontColor>4</FontColor>
+  </NovelLead>
+  <NovelLead>
+    <Name>段誉</Name>
+    <Story>段誉遇到了钟灵儿|段誉遇到了木婉清|段誉遇到了王语嫣|段誉成为了大理国国王</Story>
+    <FontColor>6</FontColor>
+  </NovelLead>
+  <NovelLead>
+    <Name>鸠摩智</Name>
+    <Story>鸠摩智去往大理讨要六脉神剑|鸠摩智将段誉抓走|鸠摩智走火入魔|鸠摩智弃暗投明</Story>
+    <FontColor>11</FontColor>
+  </NovelLead>
+</ArrayOfNovelLead>

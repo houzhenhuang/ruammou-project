@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity>
+    <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration"/>
+    <containers>
+      <container name="configContainer">
+        <extension type="Interception"/>
+        <register type="System.Data.Entity.DbContext,EntityFramework" mapTo="Homework.EF.Model.HomeworkContext, Homework.EF.Model"/>
+        <register type="Homework.Bussiness.Interface.IBaseService,Homework.Bussiness.Interface" mapTo="Homework.Bussiness.Service.BaseService, Homework.Bussiness.Service" />
+        <!--<register type="Homework.Bussiness.Interface.IUserMenuService,Homework.Bussiness.Interface" mapTo="Homework.Bussiness.Service.UserMenuService, Homework.Bussiness.Service">
+          <interceptor type="InterfaceInterceptor"/>
+          <interceptionBehavior type="Homework.Unity.LoggerBehavior,Homework.Unity"/>
+          <lifetime type="transient" />
+          <constructor>
+            <param name="dbContext" type="System.Data.Entity.DbContext,EntityFramework" />
+            <param name="id" type="System.Int32,mscorlib" value="4" />
+          </constructor>
+        </register>-->        
+      </container>
+    </containers>
+  </unity>
+</configuration>
